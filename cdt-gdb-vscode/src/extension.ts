@@ -8,11 +8,10 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
-import { MemoryServer } from './memory/server/MemoryServer';
-export { MemoryServer } from './memory/server/MemoryServer';
+import { MemoryServer } from '@eclipse-cdt-cloud/cdt-gdb-memoryview';
 
 export function activate(context: ExtensionContext) {
-    new MemoryServer(context);
+    new MemoryServer(context, 'cdt.gdb.memory.open');
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {

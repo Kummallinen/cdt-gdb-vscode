@@ -1,0 +1,18 @@
+# Allows Yarn workspace to work
+node_modules
+../node_modules
+!../node_modules/@eclipse-cdt-cloud/cdt-gdb-memoryview/out
+!../node_modules/@eclipse-cdt-cloud/cdt-gdb-memoryview/package.json
+!../node_modules/cdt-gdb-adapter
+# Must be after the Yarn workspace section
+adapter
+.gitignore
+.gitmodules
+.vscode
+out/*.map
+package-lock.json
+README.md
+src
+tsconfig.json
+webpack.config.js
+*.code-workspace

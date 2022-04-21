@@ -15,9 +15,9 @@ import { MemoryContents } from 'cdt-gdb-adapter';
 export class MemoryServer {
     private panel?: vscode.WebviewPanel;
 
-    constructor(context: vscode.ExtensionContext) {
+    constructor(context: vscode.ExtensionContext, command: string) {
         context.subscriptions.push(
-            vscode.commands.registerCommand('cdt.gdb.memory.open', () =>
+            vscode.commands.registerCommand(command, () =>
                 this.openPanel(context)
             )
         );
@@ -57,8 +57,8 @@ export class MemoryServer {
         `;
     }
 
-    private loadScript(context: vscode.ExtensionContext, path: string) {
-        return `<script src="${vscode.Uri.file(context.asAbsolutePath(path))
+    protected loadScript(context: vscode.ExtensionContext, path: string) {
+        return `<script src="${vscode.Uri.file(context.asAbsolutePath('node_modules/@eclipse-cdt-cloud/cdt-gdb-memoryview/' + path))
             .with({ scheme: 'vscode-resource' })
             .toString()}"></script>`;
     }

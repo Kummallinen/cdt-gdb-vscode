@@ -20,9 +20,12 @@ TODO
 
 We use yarn to as our package manager. To build, simply do
 
+
+In workspace root do
 ```
-yarn
-yarn build
+yarn install
+yarn run compile
+yarn run vscode:package
 ```
 
 You can also run the build in watch mode using
